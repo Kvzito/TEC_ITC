@@ -1,0 +1,35 @@
+* {
+    margin: 10px;
+}
+
+h1 {
+    color: #ff99ff;
+    border: black 3px solid;
+    padding: 15px;
+    margin: 10px;
+    background-image: url("../image/silversurfer.jpg");
+}
+
+body {
+    border: black 3px solid;
+    margin: 0;
+}
+
+header {
+    border: red 2px dotted;
+    border-radius: 50px;
+    padding: 20px
+}
+
+nav {
+    border: orange 3px solid;
+
+}
+
+footer {
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    border: green 5px solid;
+    background-color: lightblue;
+}
