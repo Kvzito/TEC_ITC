@@ -1,0 +1,49 @@
+header {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: cadetblue;
+    justify-content: space-between;
+    align-content: center;
+    padding: 18.72px;
+    color: white;
+}
+
+header nav {
+    margin: 18.72px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#subscribeSection {
+    display: flex;
+    color: white;
+    justify-content: center;
+    background-color: rgb(40, 62, 71);
+}
+
+button {
+    color: white;
+    background-color: rgb(246, 142, 6);
+}
+
+#subscribeSection form {
+    margin: 18.72px;
+}
+
+#text {
+    background-color:rgb(246, 142, 6);
+    padding: 18.72px;
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+#imageSection {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    background-color: darkslateblue;
+    color: white;
+    justify-content: center;
+}
