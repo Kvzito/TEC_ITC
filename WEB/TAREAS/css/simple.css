@@ -1,11 +1,18 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
 header {
     display: flex;
     flex-direction: row;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: cadetblue;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(40, 62, 71);
     justify-content: space-between;
     align-content: center;
-    padding: 18.72px;
+    padding: 20px;
     color: white;
 }
 
@@ -15,11 +22,17 @@ header nav {
     justify-content: space-between;
 }
 
+header nav a {
+    margin-right: 20px;
+}
+
 #subscribeSection {
     display: flex;
     color: white;
     justify-content: center;
+    font-family:'Times New Roman', Times, serif;
     background-color: rgb(40, 62, 71);
+    padding: 20px;
 }
 
 button {
@@ -28,22 +41,52 @@ button {
 }
 
 #subscribeSection form {
+    font-family: 'Times New Roman', Times, serif;
     margin: 18.72px;
 }
 
 #text {
     background-color:rgb(246, 142, 6);
-    padding: 18.72px;
+    text-align: center;
+    padding: 27px;
     color: white;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: 'Times New Roman', Times, serif;
 }
+
+#text h2 {
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
 #imageSection {
+    margin: 50.72px;
+    padding: 20px;
     display: flex;
     justify-content: center;
+    text-align: center;
+    flex-direction: row;
+}
+
+#imageSection img {
+    width: 130px;
+    height: 120px;
+}
+
+#imageSection p {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 18.72px;
 }
 
 footer {
-    background-color: darkslateblue;
+    background-color:rgb(40, 62, 71);
     color: white;
     justify-content: center;
+    padding: 20px;
+}
+
+footer p {
+    padding: 18.72px;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
 }
