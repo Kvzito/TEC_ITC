@@ -16,6 +16,11 @@ const speedIncrease = 1.01;
 const initialSpeed = 0.5;
 let playerLives = 2;
 let playerScore = 0;
+let brickRows = 5;
+let brickCols = 10;
+let instaWin = false;
+
+
 
 // Context of the Canvas
 let ctx;
@@ -76,6 +81,41 @@ class Paddle extends GameObject {
     }
 }
 
+// Clase para los ladrillos
+class Brick extends GameObject {
+    constructor(position, width, height, color) {
+        super(position, width, height, color, "brick");
+        this.destroyed = false;
+    }
+
+    draw(ctx) {
+        if (!this.destroyed) {
+            ctx.fillStyle = this.color;
+            ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        }
+    }
+
+    destroy() {
+        this.destroyed = true;
+    }
+}
+
+const bricks = [];
+const brickWidth = 70;
+const brickHeight = 20;
+const brickPadding = 10;
+const brickOffsetTop = 30;
+const brickOffsetLeft = 10;
+
+for (let row = 0; row < brickRows; row++) {
+    for (let col = 0; col < brickCols; col++) {
+        const x = col * (brickWidth + brickPadding) + brickOffsetLeft;
+        const y = row * (brickHeight + brickPadding) + brickOffsetTop;
+        bricks.push(new Brick(new Vec(x, y), brickWidth, brickHeight, 'red'));
+    }
+}
+
+
 const box = new Ball(new Vec(canvasWidth/2, canvasHeight*3/40   ), 15, 15, 'black');
 const userPaddle = new Paddle(new Vec(canvasWidth*41/100, canvasHeight-25), 150, 10, 'darkblue');
 const leftBarrier = new GameObject(new Vec(0, 0), 8, canvasHeight, 'black', 'barrier');
@@ -85,6 +125,7 @@ const bottomGoal = new GameObject(new Vec(8, canvasHeight-8), canvasWidth-16, 8,
 const vidasLabel = new TextLabel(30, canvasHeight-60, "15px Ubuntu Mono", "black");
 const startLabel = new TextLabel(canvasWidth*39/100, canvasHeight-100, "15px Ubuntu Mono", "black");
 const scoreLabel = new TextLabel(30, canvasHeight-30, "15px Ubuntu Mono", "black");
+const winLabel = new TextLabel(canvasWidth*25/100, canvasHeight/2, "30px Ubuntu Mono", "black");
 
 function main(){
     const canvas = document.getElementById('canvas');
@@ -119,6 +160,14 @@ function createEventListeners(){
         if (event.key == 's' && !box.inPlay) {
             box.initVelocity();
         }
+        if (event.key == 'r' && (playerLives <= -1 || playerScore == brickRows*brickCols || instaWin)) {
+            location.reload();
+            instaWin = false;
+        }
+        if (event.key === 'k') { // Sorpresa, ganas automaticamente!
+            bricks.forEach(brick => brick.destroy());
+            instaWin = true;
+        }
     });
 }
 
@@ -130,6 +179,41 @@ function drawScene(newTime) {
 
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
+    let allBricksDestroyed = true;
+    bricks.forEach((brick, index) => {
+        const row = Math.floor(index / brickCols);
+        switch (row) {
+            case 0:
+                brick.color = 'red';
+                break;
+            case 1:
+                brick.color = 'orange';
+                break;
+            case 2:
+                brick.color = 'yellow';
+                break;
+            case 3:
+                brick.color = 'green';
+                break;
+            case 4:
+                brick.color = 'blue';
+                break;
+        }
+        brick.draw(ctx);
+        if (boxOverlap(box, brick) && !brick.destroyed) {
+            brick.destroy();
+            box.velocity.y *= -1;
+            playerScore++;
+        }
+        if (!brick.destroyed) {
+            allBricksDestroyed = false;
+        }
+    });
+
+    if (allBricksDestroyed) {
+        winLabel.draw(ctx, "Ganaste! Presiona 'r' para reiniciar");
+        return;
+    }
     // Dibujar 
     scoreLabel.draw(ctx, `${playerScore} bloques destruidos`);
     vidasLabel.draw(ctx,`${playerLives} vidas restantes`);
