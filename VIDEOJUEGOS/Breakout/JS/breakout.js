@@ -126,6 +126,7 @@ const vidasLabel = new TextLabel(30, canvasHeight-60, "15px Ubuntu Mono", "black
 const startLabel = new TextLabel(canvasWidth*39/100, canvasHeight-100, "15px Ubuntu Mono", "black");
 const scoreLabel = new TextLabel(30, canvasHeight-30, "15px Ubuntu Mono", "black");
 const winLabel = new TextLabel(canvasWidth*25/100, canvasHeight/2, "30px Ubuntu Mono", "black");
+const loseLabel = new TextLabel(canvasWidth*25/100, canvasHeight/2, "30px Ubuntu Mono", "black");
 
 function main(){
     const canvas = document.getElementById('canvas');
@@ -246,9 +247,7 @@ function drawScene(newTime) {
     }
 
     if (playerLives <= -1) {
-        ctx.fillStyle = 'black';
-        ctx.font = '30px Ubuntu Mono';
-        ctx.fillText('GAME OVER', canvasWidth/2 - 90, canvasHeight/2);
+        loseLabel.draw(ctx, "Perdiste! Presiona 'r' para reiniciar");
         return;
     }
 
