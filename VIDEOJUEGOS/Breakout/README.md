@@ -3,6 +3,12 @@
 
 ---
 
+## 🕹 Cómo acceder al juego  
+Puedes jugar esta versión de **Breakout** accediendo al siguiente enlace:  
+🔗 [Enlace al juego](https://kvzito.github.io/TEC_ITC/VIDEOJUEGOS/Breakout/HTML/breakoutWeb.html) 
+
+---
+
 ## 🎯 Objetivo  
 Esta adaptación del clásico juego **"Breakout"** tiene exactamente el mismo objetivo:  
 📌 **Romper todos los bloques con la pelota para ganar**  
