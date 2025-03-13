@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(137, 137, 137);
+    height: 100vh;
+}
+
+.grid-item{
+    background-color: cyan;
+    padding: 10px;
+    border: 3px solid white;
+}
+
+.grid-container {
+    display: grid;
+    height: calc(100% - 16px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 2fr 1fr 1fr 1fr; /* 5 filas */
+    gap: 10px ; /* Espacio entre celdas */
+    grid-template-areas:
+        "header header ."
+        /* ". main ."
+        ". main ."
+        ". main ."
+        ". . ." */
+}
+
+#grid-item-1 {
+    grid-area: header;
+}
+
+#grid-item-2 {
+    /* grid-area: main; */
+    grid-row: 2 / span 3;
+    grid-column: 2;
+}
