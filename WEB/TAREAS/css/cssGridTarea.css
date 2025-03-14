@@ -1,0 +1,85 @@
+body {
+    background-color: rgb(50, 55, 84);
+    height: 100vh;
+}
+
+.grid-contenedor {
+    display: grid;
+    height: calc(100% - 16px);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+}
+
+.grid-item{
+    padding: 10px;
+    border: 3px;
+}
+
+.grid-container1 {
+    display: grid;
+    background-color: brown;
+    border: 10px solid brown; 
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr; /* 5 filas */
+    gap: 25px 20px; /* Espacio entre celdas */
+}
+
+.grid-container2 {
+    display: grid;
+    background-color: brown;
+    border: 10px solid brown; 
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(8, 1fr); /* 5 filas */
+    gap: 25px 15px; /* Espacio entre celdas */
+}
+
+#grid-item-7 {
+    background-color: rgb(224, 67, 88);
+    grid-row: 1 / span 2;
+    grid-column: 1 / span 10;
+}
+
+#grid-item-8 {
+    background-color: rgb(248, 62, 29);
+    grid-row: 3 / span 6;
+    grid-column: 1 / span 4;
+}
+
+#grid-item-9 {
+    background-color: rgb(248, 146, 29);
+    grid-row: 3 / span 3;
+    grid-column: 5 / span 6;
+}
+
+#grid-item-10 {
+    background-color: rgb(65, 179, 135);
+}
+
+#grid-item-11 {
+    background-color: rgb(91, 214, 167);
+}
+
+#grid-item-1 {
+    background-color: rgb(224, 67, 88);
+}
+
+#grid-item-2 {
+    background-color: rgb(248, 62, 29);
+}
+
+#grid-item-3 {
+    background-color: rgb(248, 146, 29);
+}
+
+#grid-item-4 {
+    background-color: rgb(65, 179, 135);
+}
+
+#grid-item-5 {
+    background-color: rgb(91, 214, 167);
+}
+
+#grid-item-6 {
+    background-color: rgb(153, 245, 210);
+}
