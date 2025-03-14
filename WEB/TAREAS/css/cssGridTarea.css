@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(50, 55, 84);
+    background-color: rgb(255, 255, 255);
     height: 100vh;
 }
 
@@ -12,26 +12,122 @@ body {
 }
 
 .grid-item{
-    padding: 10px;
-    border: 3px;
+    padding: 15px;
 }
 
 .grid-container1 {
     display: grid;
-    background-color: brown;
-    border: 10px solid brown; 
+    background-color: rgb(50, 55, 84);
+    border: 20px solid rgb(50, 55, 84); 
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr; /* 5 filas */
-    gap: 25px 20px; /* Espacio entre celdas */
+    gap: 15px; /* Espacio entre celdas */
 }
 
 .grid-container2 {
     display: grid;
-    background-color: brown;
-    border: 10px solid brown; 
+    background-color: rgb(50, 55, 84);
+    border: 20px solid rgb(50, 55, 84); 
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(8, 1fr); /* 5 filas */
-    gap: 25px 15px; /* Espacio entre celdas */
+    gap: 15px; /* Espacio entre celdas */
+}
+
+.grid-container3 {
+    display: grid;
+    background-color: rgb(50, 55, 84);
+    border: 20px solid rgb(50, 55, 84); 
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(8, 1fr); /* 5 filas */
+    gap: 15px; /* Espacio entre celdas */
+}
+
+.grid-container4 {
+    display: grid;
+    background-color: rgb(50, 55, 84);
+    border: 20px solid rgb(50, 55, 84); 
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(8, 1fr); 
+    gap: 15px; /* Espacio entre celdas */
+}
+
+.grid-item-cont{
+    display: grid;
+    border: 20px solid rgb(41, 192, 134);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 15px;
+}
+#grid-item-23 {
+    background-color: rgb(234, 86, 33);
+    grid-row: 2;
+    grid-column: 2;
+}
+
+#grid-item-22 {
+    background-color: rgb(60, 161, 123);
+    grid-row: 2;
+    grid-column: 1;
+}
+
+#grid-item-21 {
+    background-color: rgb(110, 245, 193);
+    grid-row: 1;
+    grid-column: 1 / span 2;
+}
+
+#grid-item-20 {
+    background-color: rgb(41, 192, 134);
+    grid-row: 3 / span 6;
+    grid-column: 13 / span 12;
+}
+
+#grid-item-19 {
+    background-color: rgb(234, 86, 33);
+    grid-row: 3 / span 6;
+    grid-column: 1 / span 12;
+}
+
+#grid-item-18 {
+    background-color: rgb(153, 245, 210);
+    grid-row: 1 / span 2;
+    grid-column: 13 / span 12;
+}
+
+#grid-item-17 {
+    background-color: rgb(230, 152, 35);
+    grid-row: 1 / span 2;
+    grid-column: 1 / span 12;
+}
+
+#grid-item-12 {
+    background-color: rgb(244, 108, 50);
+    grid-row: 1 / span 3;
+    grid-column: 1 / span 5;
+}
+
+#grid-item-13 {
+    background-color: rgb(240, 86, 19);
+    grid-row: 1 / span 3;
+    grid-column: 6 / span 5;
+}
+
+#grid-item-14 {
+    background-color: rgb(58, 189, 139);
+    grid-row: 4 / span 4;
+    grid-column: 1 / span 4;
+}
+
+#grid-item-15 {
+    background-color: rgb(153, 245, 210);
+    grid-row: 4 / span 4;
+    grid-column: 5 / span 6;
+}
+
+#grid-item-16 {
+    background-color: rgb(222, 150, 41);
+    grid-row: 8;
+    grid-column: 1 / span 10;
 }
 
 #grid-item-7 {
@@ -54,10 +150,14 @@ body {
 
 #grid-item-10 {
     background-color: rgb(65, 179, 135);
+    grid-row: 6 / span 3;
+    grid-column: 5 / span 3;
 }
 
 #grid-item-11 {
     background-color: rgb(91, 214, 167);
+    grid-row: 6 / span 3;
+    grid-column: 8 / span 3;
 }
 
 #grid-item-1 {
