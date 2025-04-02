@@ -21,14 +21,31 @@
         <h3>Preguntas</h3>
         <ol>
             <li>¿Qué es el DOM?</li>
+            <p>El DOM (Document Object Model) es una representación estructurada del documento HTML o XML que permite a los lenguajes de programación manipular su contenido, estructura y estilo.</p>
+            
             <li>¿Qué es un nodo?</li>
+            <p>Un nodo es una unidad básica del DOM que puede representar un elemento, un atributo, un texto, un comentario, entre otros.</p>
+            
             <li>¿Cómo se accede a un elemento del DOM?</li>
+            <p>Se puede acceder a un elemento del DOM utilizando métodos como <code>getElementById</code>, <code>getElementsByClassName</code>, <code>getElementsByTagName</code>, o <code>querySelector</code>.</p>
+            
             <li>¿Cómo se modifica un elemento del DOM?</li>
+            <p>Un elemento del DOM se puede modificar cambiando sus propiedades, como <code>innerHTML</code>, <code>style</code>, o utilizando métodos como <code>setAttribute</code>.</p>
+            
             <li>¿Cuál es la diferencia entre getElementby* y querySelector*?</li>
+            <p><code>getElementBy*</code> devuelve elementos específicos (por ID, clase, o etiqueta), mientras que <code>querySelector*</code> utiliza selectores CSS y puede devolver el primer elemento que coincida o una lista de elementos.</p>
+            
             <li>¿Qué es un evento?</li>
+            <p>Un evento es una interacción o cambio que ocurre en el navegador, como un clic, un movimiento del mouse, o la carga de una página.</p>
+            
             <li>¿Qué es un listener?</li>
+            <p>Un listener es una función que "escucha" un evento y se ejecuta cuando dicho evento ocurre.</p>
+            
             <li>¿Qué es un callback?</li>
+            <p>Un callback es una función que se pasa como argumento a otra función y se ejecuta después de que ocurre un evento o se completa una operación.</p>
+            
             <li>¿Qué es un objeto de evento?</li>
+            <p>Un objeto de evento contiene información sobre un evento específico, como el tipo de evento, el elemento objetivo, y otros detalles relacionados.</p>
         </ol>        
     </div>
 
@@ -40,14 +57,55 @@
         <p id="mousePosition">Posición del mouse: </p>
     </div>
 
+    <script>
+        // Seleccionamos el elemento donde mostraremos la posición del mouse
+        const mousePositionElement = document.getElementById('mousePosition');
+
+        // Agregamos un listener al evento 'mousemove' en el documento
+        document.addEventListener('mousemove', (event) => {
+            // Obtenemos las coordenadas del mouse
+            const x = event.clientX;
+            const y = event.clientY;
+
+            // Actualizamos el contenido del elemento con las coordenadas
+            mousePositionElement.textContent = `Posición del mouse: X=${x}, Y=${y}`;
+        });
+    </script>
+
     <div class="container">
         <p>2. Al dar click al siguiente botón, obtén el nombre y apellido de las siguientes cajas de texto, y agrega, después del botón, un elemento que tenga el nombre completo.</p>
         <form id="form1">
             First name: <input id="form-fname" type="text" name="fname" ><br>
             Last name: <input id="form-lname" type="text" name="lname" ><br><br>
-        <input id="form1-submit" type="submit" value="Submit">
+            <input id="form1-submit" type="button" value="Submit">
         </form>
+        <!-- Contenedor donde se mostrará el nombre completo -->
+        <p id="fullName"></p>
     </div>
+
+    <script>
+        // Seleccionamos los elementos necesarios
+        const firstNameInput = document.getElementById('form-fname');
+        const lastNameInput = document.getElementById('form-lname');
+        const submitButton = document.getElementById('form1-submit');
+        const fullNameElement = document.getElementById('fullName');
+
+        // Agregamos un listener al botón para manejar el evento de clic
+        submitButton.addEventListener('click', () => {
+            // Obtenemos los valores de las cajas de texto
+            const firstName = firstNameInput.value.trim();
+            const lastName = lastNameInput.value.trim();
+
+            // Verificamos que ambos campos tengan contenido
+            if (firstName && lastName) {
+                // Mostramos el nombre completo en el elemento correspondiente
+                fullNameElement.textContent = `Nombre completo: ${firstName} ${lastName}`;
+            } else {
+                // Mostramos un mensaje de error si algún campo está vacío
+                fullNameElement.textContent = 'Por favor, completa ambos campos.';
+            }
+        });
+    </script>
 
     <div class="container">
         <p>3. Agrega el código para agregar una fila, o una columna, a la siguiente tabla al dar click al botón correspondiente.</p>
@@ -64,6 +122,36 @@
         <input id="btn-insert-r" type="button" value="Insert row">
         <input id="btn-insert-c" type="button" value="Insert column">
     </div>
+
+    <script>
+        // Seleccionamos la tabla y los botones
+        const sampleTable = document.getElementById('sampleTable');
+        const insertRowButton = document.getElementById('btn-insert-r');
+        const insertColumnButton = document.getElementById('btn-insert-c');
+
+        // Agregamos un listener al botón para insertar una fila
+        insertRowButton.addEventListener('click', () => {
+            // Creamos una nueva fila
+            const newRow = sampleTable.insertRow();
+            // Obtenemos el número de columnas de la primera fila
+            const columnCount = sampleTable.rows[0].cells.length;
+            // Agregamos celdas a la nueva fila
+            for (let i = 0; i < columnCount; i++) {
+                const newCell = newRow.insertCell();
+                newCell.textContent = `New row cell ${i + 1}`;
+            }
+        });
+
+        // Agregamos un listener al botón para insertar una columna
+        insertColumnButton.addEventListener('click', () => {
+            // Iteramos sobre cada fila de la tabla
+            for (let i = 0; i < sampleTable.rows.length; i++) {
+                // Insertamos una nueva celda al final de la fila actual
+                const newCell = sampleTable.rows[i].insertCell();
+                newCell.textContent = `New col cell ${i + 1}`;
+            }
+        });
+    </script>
 
     <div class="container">
         <p>4. Incluye dos cajas de input, para solicitar al usuario la posición de la fila y columna de la siguiente tabla, y otra para solicitar un texto. Al apretar el botón, actualiza el contenido de esa tabla en la posición que solicitaste, con la cadena de texto que solicitaste.</p>
@@ -83,12 +171,49 @@
                 <td>Row3 cell2</td>
                 <td>Row3 cell3</td>
             </tr>
-            </table><form><br>
+        </table>
+        <form><br>
             <input id="rowIndex" type="text" placeholder="Row Index">
             <input id="colIndex" type="text" placeholder="Col Index">
             <input id="newValue" type="text" placeholder="New Value">
             <input id="btn-change" type="button" value="Change content">
+        </form>
     </div>
+
+    <script>
+        // Seleccionamos los elementos necesarios
+        const table = document.getElementById('myTable');
+        const rowIndexInput = document.getElementById('rowIndex');
+        const colIndexInput = document.getElementById('colIndex');
+        const newValueInput = document.getElementById('newValue');
+        const changeButton = document.getElementById('btn-change');
+
+        // Agregamos un listener al botón para manejar el evento de clic
+        changeButton.addEventListener('click', () => {
+            // Obtenemos los valores ingresados por el usuario
+            const rowIndex = parseInt(rowIndexInput.value.trim(), 10);
+            const colIndex = parseInt(colIndexInput.value.trim(), 10);
+            const newValue = newValueInput.value.trim();
+
+            // Validamos que los índices sean números válidos y que el texto no esté vacío
+            if (!isNaN(rowIndex) && !isNaN(colIndex) && newValue) {
+                // Verificamos que la fila y columna existan en la tabla
+                if (rowIndex >= 0 && rowIndex < table.rows.length) {
+                    const row = table.rows[rowIndex];
+                    if (colIndex >= 0 && colIndex < row.cells.length) {
+                        // Actualizamos el contenido de la celda especificada
+                        row.cells[colIndex].textContent = newValue;
+                    } else {
+                        alert('Índice de columna fuera de rango.');
+                    }
+                } else {
+                    alert('Índice de fila fuera de rango.');
+                }
+            } else {
+                alert('Por favor, ingresa índices válidos y un texto no vacío.');
+            }
+        });
+    </script>
 
     <div class="container">
         <p>5. Agrega el código para quitar o agregar elementos a la lista de opciones. Los colores pueden ser aleatorios.</p>
@@ -102,20 +227,77 @@
             <input id="btn-add-color" type="button" value="Add color">
             <input id="btn-rmv-color" type="button" value="Remove color">
         </form>
-    </div>
+    <script>
+        // Seleccionamos los elementos necesarios
+        const colorSelect = document.getElementById('colorSelect');
+        const addColorButton = document.getElementById('btn-add-color');
+        const removeColorButton = document.getElementById('btn-rmv-color');
+
+        // Lista de colores con sus nombres y códigos HEX
+        const colors = [
+            { name: 'Red', hex: '#FF0000' },
+            { name: 'Green', hex: '#008000' },
+            { name: 'Blue', hex: '#0000FF' },
+            { name: 'Yellow', hex: '#FFFF00' },
+            { name: 'Purple', hex: '#800080' },
+            { name: 'Orange', hex: '#FFA500' },
+            { name: 'Pink', hex: '#FFC0CB' },
+            { name: 'Brown', hex: '#A52A2A' },
+            { name: 'Gray', hex: '#808080' }
+        ];
+
+        // Listener para agregar un color aleatorio de la lista a la lista de opciones
+        addColorButton.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            const newColor = colors[randomIndex];
+            const newOption = document.createElement('option');
+            newOption.textContent = `${newColor.name} (${newColor.hex})`;
+            newOption.value = newColor.hex;
+            colorSelect.appendChild(newOption);
+        });
+
+        // Listener para eliminar el color seleccionado de la lista
+        removeColorButton.addEventListener('click', () => {
+            const selectedOption = colorSelect.options[colorSelect.selectedIndex];
+            if (selectedOption) {
+                selectedOption.remove();
+            } else {
+                alert('No hay un color seleccionado para eliminar.');
+            }
+        });
+    </script>
 
     <div class="container">
         <p>6. Al poner el mouse encima de la siguiente imagen, genera dos números aleatorios entre 300 y 600 para el width y height de una imagen. Reemplaza la imagen de placeholder por otra similar con el tamaño random que generaste. El evento solo se dispara cuando el mouse entra en la imagen.</p>
-        <img id="imagenGato" src="http://placekitten.com/200/300">
+        <img id="imagenGato" src="http://placekitten.com/200/300" alt="Gato lindo">
     </div>
+
+    <script>
+        // Seleccionamos la imagen
+        const imagenGato = document.getElementById('imagenGato');
+
+        // Agregamos un listener para el evento 'mouseenter'
+        imagenGato.addEventListener('mouseenter', () => {
+            // Generamos dos números aleatorios entre 300 y 600 para el ancho y alto
+            const randomWidth = Math.floor(Math.random() * (600 - 300 + 1)) + 300;
+            const randomHeight = Math.floor(Math.random() * (600 - 300 + 1)) + 300;
+
+            // Actualizamos el atributo 'src' de la imagen con el nuevo tamaño
+            imagenGato.src = `https://placecats.com/${randomWidth}/${randomHeight}`;
+        });
+    </script>
 
     <div class="container">
         <h2>Conclusiones</h2>
 
         <h4>Experiencia general</h4>
+        <p>Me resulta en cierta medida preocupante el poder de la inteligencia artificial, ya que le genera a uno el tipo de dudas de "¿Me va a dejar sin trabajo?¿Nos va reemplazar en algún punto?, etc." pero a la vez me agrada el boost de rendimiento que nos proporciona.</p>
         <h4>¿Cuándo y para qué usarías ChatGPT y cuándo Copilot?</h4>
+        <p>Este documento lo terminé completamente con Copilot, y es que me resulta más efectivo para este tipo de tareas de coding ya que puedo manipularlo directamente desde mi VSCode, seleccionando el pedazo de código que quiero que altere y esto me es más cómodo que intentar que ChatGPT me de tódo el archivo resuelto, ya que el primero intento que tuve de esto no salió bien.</p>
         <h4>Ventajas de usar AI para programar</h4>
+        <p>Te ahorra MUCHÍSIMO tiempo de typing y ofrece varias alternativas para estructurar y desarrollar el código, básicamente aumenta nuestra productividad en gran medida.</p>
         <h4>Desventajas de usar AI para programar</h4>
+        <p>Que no siempre va a ser la mejor opción lo que nos genere, hablando de temas de seguridad y/o optimización. Además de que muchas veces quienes las usan no saben ni que les está haciendo.</p>
     </div>
 
 </body>
