@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../css/eventos_dom.css">
+    <script type="module" src="../js/eventos_dom.js"></script>
+    <title>Eventos y Dom</title>
+</head>
+
+<body>
+    <h1>Eventos y DOM y ChatGPT</h1>
+
+    <div class="container">
+        <h2>Instrucciones</h2>
+        <p>Utiliza ChatGPT y github Copilot para resolver la siguiente actividad. Antes de hacer los ejercicios, contesta las siguientes preguntas. Pregúntale a ChatGPT las preguntas, y verifica que lo que haya generado es correcto. Cuando sea necesario, agrega un ejemplo de código. Incluye una fuente que valide o invalide lo que generó. Agrega elementos de HTML con tus respuestas. (<b>Protip</b>: usa ChatGPT para que las respuestas las ponga directamente en elementos de html.)</p>
+
+        <p>Terminando las preguntas y los ejercicios, documenta tu experiencia con las herramientas en la sección de conclusiones. </p>
+    </div>
+
+    <div class="container">
+        <h3>Preguntas</h3>
+        <ol>
+            <li>¿Qué es el DOM?</li>
+            <li>¿Qué es un nodo?</li>
+            <li>¿Cómo se accede a un elemento del DOM?</li>
+            <li>¿Cómo se modifica un elemento del DOM?</li>
+            <li>¿Cuál es la diferencia entre getElementby* y querySelector*?</li>
+            <li>¿Qué es un evento?</li>
+            <li>¿Qué es un listener?</li>
+            <li>¿Qué es un callback?</li>
+            <li>¿Qué es un objeto de evento?</li>
+        </ol>        
+    </div>
+
+    <h3>Ejercicios de código</h3>
+    <p>Usa ChatGPT y copilot para resolver los ejercicios. Por cada ejercicio, pídele a ChatGPT o a copilot que te genere los comentarios. Verifica los resultados antes de subirlos a tu repo.</p>
+
+    <div class="container">
+        <p>1. Modifica el siguiente elemento para mostrar la posición del mouse en el documento:</p>
+        <p id="mousePosition">Posición del mouse: </p>
+    </div>
+
+    <div class="container">
+        <p>2. Al dar click al siguiente botón, obtén el nombre y apellido de las siguientes cajas de texto, y agrega, después del botón, un elemento que tenga el nombre completo.</p>
+        <form id="form1">
+            First name: <input id="form-fname" type="text" name="fname" ><br>
+            Last name: <input id="form-lname" type="text" name="lname" ><br><br>
+        <input id="form1-submit" type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="container">
+        <p>3. Agrega el código para agregar una fila, o una columna, a la siguiente tabla al dar click al botón correspondiente.</p>
+        <table id="sampleTable">
+            <tr>
+                <td>Row 1 column 1</td>
+                <td>Row 1 column 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 column 1</td>
+                <td>Row 2 column 2</td>
+            </tr>
+        </table><br>
+        <input id="btn-insert-r" type="button" value="Insert row">
+        <input id="btn-insert-c" type="button" value="Insert column">
+    </div>
+
+    <div class="container">
+        <p>4. Incluye dos cajas de input, para solicitar al usuario la posición de la fila y columna de la siguiente tabla, y otra para solicitar un texto. Al apretar el botón, actualiza el contenido de esa tabla en la posición que solicitaste, con la cadena de texto que solicitaste.</p>
+        <table id="myTable">
+            <tr>
+                <td>Row1 cell1</td>
+                <td>Row1 cell2</td>
+                <td>Row1 cell3</td>
+            </tr>
+            <tr>
+                <td>Row2 cell1</td>
+                <td>Row2 cell2</td>
+                <td>Row2 cell3</td>
+            </tr>
+            <tr>
+                <td>Row3 cell1</td>
+                <td>Row3 cell2</td>
+                <td>Row3 cell3</td>
+            </tr>
+            </table><form><br>
+            <input id="rowIndex" type="text" placeholder="Row Index">
+            <input id="colIndex" type="text" placeholder="Col Index">
+            <input id="newValue" type="text" placeholder="New Value">
+            <input id="btn-change" type="button" value="Change content">
+    </div>
+
+    <div class="container">
+        <p>5. Agrega el código para quitar o agregar elementos a la lista de opciones. Los colores pueden ser aleatorios.</p>
+        <form>
+            <select id="colorSelect">
+                <option>Red</option>
+                <option>Green</option>
+                <option>White</option>
+                <option>Black</option>
+            </select>
+            <input id="btn-add-color" type="button" value="Add color">
+            <input id="btn-rmv-color" type="button" value="Remove color">
+        </form>
+    </div>
+
+    <div class="container">
+        <p>6. Al poner el mouse encima de la siguiente imagen, genera dos números aleatorios entre 300 y 600 para el width y height de una imagen. Reemplaza la imagen de placeholder por otra similar con el tamaño random que generaste. El evento solo se dispara cuando el mouse entra en la imagen.</p>
+        <img id="imagenGato" src="http://placekitten.com/200/300">
+    </div>
+
+    <div class="container">
+        <h2>Conclusiones</h2>
+
+        <h4>Experiencia general</h4>
+        <h4>¿Cuándo y para qué usarías ChatGPT y cuándo Copilot?</h4>
+        <h4>Ventajas de usar AI para programar</h4>
+        <h4>Desventajas de usar AI para programar</h4>
+    </div>
+
+</body>
+</html>
